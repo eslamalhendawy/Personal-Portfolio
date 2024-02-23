@@ -5,9 +5,6 @@ import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
 
-import "./App.scss"
-
-
 function App() {
   return (
     <div>
