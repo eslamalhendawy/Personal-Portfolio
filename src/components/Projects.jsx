@@ -3,19 +3,23 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const Single = ({ item }) => {
   const ref = useRef();
-  const { scrollYProgress } = useScroll({ target: ref , });
+  const { scrollYProgress } = useScroll({ target: ref });
   const y = useTransform(scrollYProgress, [0, 1], [-200, 200]);
   return (
     <section className="h-screen snap-center relative z-[6]">
       <div className="flex justify-center items-center w-full h-full overflow-hidden">
         <div className="container h-full mx-auto px-4 pt-[20px] flex flex-col md:flex-row gap-[30px] justify-center items-center">
           <div className="w-full lg:w-auto h-[300px] lg:h-[50%]" ref={ref}>
-            <img className="w-full h-full object-contain" src={item.image} alt="" />
+            <a href={item.link} target="_black">
+              <img className="w-full h-full object-contain" src={item.image} alt="" />
+            </a>
           </div>
-          <motion.div className="basis-1/2 flex flex-col gap-[20px] textContainer" style={{y}}>
+          <motion.div className="basis-1/2 flex flex-col gap-[20px] textContainer" style={{ y }}>
             <h2 className="text-[40px] lg:text-[50px] text-center md:text-left">{item.title}</h2>
             <p className="text-[#808080] text-[20px] text-center md:text-left">{item.desc}</p>
-            <a className="bg-[#ffa500] block mx-auto md:ml-0 cursor-pointer text-center text-black p-[10px] w-[200px] rounded-lg" href={item.link} target="_black">Visit Demo Site</a>
+            <a className="bg-[#ffa500] block mx-auto md:ml-0 cursor-pointer text-center text-black p-[10px] w-[200px] rounded-lg" href={item.link} target="_black">
+              Visit Demo Site
+            </a>
           </motion.div>
         </div>
       </div>
@@ -38,6 +42,13 @@ const Projects = () => {
       image: "/assets/movie.png",
       desc: "A movie and tv show database website that allows users to search for movies and tv shows and view details about them.",
       link: "https://cinephile-central.netlify.app/",
+    },
+    {
+      id: 2,
+      title: "AI Summarizer",
+      image: "/assets/summarizer.png",
+      desc: "A website that uses AI to summarize long articles and text into a short and concise summary.",
+      link: "https://summarize-js.netlify.app/",
     },
     // {
     //   id: 2,
